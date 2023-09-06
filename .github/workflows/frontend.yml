@@ -8,7 +8,7 @@ on:
 
 env:
   Domain: 'synthapse.io'
-  BUCKET: 'synthapse'
+  BUCKET: 'synthapse-landing'
   ENVIRONMENT: true
 
 jobs:
