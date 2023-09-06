@@ -12,6 +12,35 @@ code {
     monospace;
 }
 
+
+h2 {
+  color: #28292C;
+  font-family: Gilroy-Bold;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h3 {
+  color: #7A6E6E;
+  font-family: Gilroy-Medium;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+p {
+  color: #959595;
+  text-align: justify;
+  font-family: Gilroy-Regular;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 $primary-color: #FD6E43;
 
 @font-face {
@@ -39,4 +68,3 @@ $primary-color: #FD6E43;
   font-family: 'Gilroy-Light';
   src: local('Gilroy-Light'), url(./fonts/Gilroy-Light.ttf) format('truetype');
 }
-
