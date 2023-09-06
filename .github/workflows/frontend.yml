@@ -28,6 +28,8 @@ jobs:
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
 
+      - uses: actions/checkout@v2
+       
       - name: Build and deploy frontend to static GCP Cloud Storage
         run: |
           cd ./Synthapse.Frontend/
