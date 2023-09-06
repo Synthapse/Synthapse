@@ -30,7 +30,7 @@ jobs:
 
       - name: Build and deploy frontend to static GCP Cloud Storage
         run: |
-          cd ./landing/
+          cd ./Synthapse.Frontend/
           npm install --force
           CI=false npm run build
           gsutil web set -m index.html -e index.html gs://${{ env.BUCKET }}
