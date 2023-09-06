@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import main from './images/hero.jpg';
+import mainMobile from './images/heroMobile.jpg';
 import voicesense from './images/voicesense.jpg';
 import cognispace from './images/cognispace.jpg';
 import './App.css';
@@ -23,7 +24,7 @@ function App() {
     <div className="App">
       <Hero />
       <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} />
-      <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse/>
+      <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse />
     </div>
   );
 }
@@ -39,15 +40,26 @@ const Logo = styled.img`
 
 const HeroContainer = styled.div`
   display: flex;
+  min-height: 100vh;
+  @media (max-width: 768px) { 
+    flex-direction: column;
+  }
 `
-
-const HeroImage = styled.img`
-  width: 100%;
-  min-height:100vh;
-  `
 
 const HeroImageContainer = styled.div`
   width: 50%;
+  min-height:100vh;
+  background-size: cover;
+  background-image: url(${main});
+  @media (max-width: 768px) { 
+    width: 100%;
+    min-height:320px;
+    max-height:320px;
+    background-size: contain;
+    background-image: url(${mainMobile});
+    background-repeat: no-repeat;
+  }
+
   `
 
 const HeroHeader = styled.div`
@@ -58,7 +70,20 @@ const HeroHeader = styled.div`
   text-align:left;
   font-family: Gilroy-Regular;
   color: #959595;
-  padding: 2rem;
+  padding: 32px;
+  
+  > h1 {
+    width:70%;
+  }
+
+  @media (max-width: 768px) { 
+    width: calc(100% - 32px);
+    padding: 18px;
+    height: 65vh;
+    > h1 {
+      width:100%;
+    }
+  }
   `
 
 
@@ -88,15 +113,13 @@ const Hero = () => {
     <HeroContainer>
       <HeroHeader>
         <Logo src={logo} alt="logo" />
-        <h1>Shaping Tomorrow's World with<br />
+        <h1>Shaping Tomorrow's World with
           Collective Intelligence</h1>
         <PrimaryButton ctaText={"Explore Ai Solutions"} />
         <br />
         <Link>Join the collective mind</Link>
       </HeroHeader>
-      <HeroImageContainer>
-        <HeroImage src={main} alt="logo" />
-      </HeroImageContainer>
+      <HeroImageContainer />
     </HeroContainer>
 
   )
@@ -117,12 +140,18 @@ const ProjectContainer = styled.div`
   display: flex;
   padding: 5% 5%;
   justify-content: space-between;
+  @media (max-width: 768px) { 
+    flex-direction: column;
+    flex-flow: none;
+  }
 `
 
 const ProjectHeader = styled.div`
   width: 39%;
   text-align: left;
-  padding: 2rem;
+  @media (max-width: 768px) { 
+    width: 100%;
+  }
 `
 
 
@@ -135,9 +164,24 @@ interface IProject {
   isReverse?: boolean
 }
 
-const Project = ({ header, subHeader, description, imgSource, link, isReverse=false }: IProject) => {
+const Project = ({ header, subHeader, description, imgSource, link, isReverse = false }: IProject) => {
+
+  const [width, setWidth] = useState<number>(window.innerWidth);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  }, []);
+
+  const isMobile = width <= 768;
+
   return (
-    <ProjectContainer style={isReverse ? { flexFlow: 'row-reverse' } : {}}>
+    <ProjectContainer style={isReverse && !isMobile ? { flexFlow: 'row-reverse' } : {}}>
       <img src={imgSource} alt="logo" />
       <ProjectHeader>
         <h2>{header}</h2>
