@@ -14,6 +14,13 @@ function App() {
 
 const primaryColor = "#FD6E43"
 
+
+const Logo = styled.img`
+  width: 160px;
+  position: absolute;
+  top: 40px;
+`
+
 const HeroContainer = styled.div`
   display: flex;
 `
@@ -23,26 +30,32 @@ const HeroImage = styled.img`
   min-height:100vh;
   `
 
+const HeroImageContainer = styled.div`
+  width: 50%;
+  `
+
 const HeroHeader = styled.div`
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   text-align:left;
-  font-family: Gilroy-SemiBold;
+  font-family: Gilroy-Regular;
   color: #959595;
   padding: 2rem;
   `
 
 
 const PrimaryButtonStyled = styled.button`
-  background-color: ${primaryColor}};
+  background-color: ${primaryColor};
   color: #fff;
-  border: none;
   font-family: Gilroy-SemiBold;
-  font-size: 1rem;
-  height: 60px;
-  width: 260px;
+  border: none;
+  height: 40px;
+  width: 240px;
+  &:hover {
+    cursor: pointer;
+  }
   `
 
 
@@ -50,14 +63,15 @@ const Hero = () => {
   return (
     <HeroContainer>
       <HeroHeader>
-        <h1>Shaping Tomorrow's World with
+        <Logo src={logo} alt="logo" />
+        <h1>Shaping Tomorrow's World with<br/>
           Collective Intelligence</h1>
         <PrimaryButton ctaText={"Explore Ai Solutions"} />
         Join the collective mind
       </HeroHeader>
-      <div>
+      <HeroImageContainer>
         <HeroImage src={main} alt="logo" />
-      </div>
+      </HeroImageContainer>
     </HeroContainer>
 
   )
