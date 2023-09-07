@@ -108,7 +108,7 @@ const Link = styled.a`
   `
 
 
-const Hero = () => {
+export const Hero = () => {
   return (
     <HeroContainer>
       <HeroHeader>
