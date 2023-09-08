@@ -6,6 +6,7 @@ import voicesense from './images/voicesense.jpg';
 import cognispace from './images/cognispace.jpg';
 import './App.css';
 import styled from 'styled-components';
+import { Technology } from './Technology';
 
 
 const voiceSenseUrl = "https://storage.googleapis.com/voicesense/index.html"
@@ -25,6 +26,7 @@ function App() {
       <Hero />
       <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} />
       <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse />
+      <Technology/>
     </div>
   );
 }
