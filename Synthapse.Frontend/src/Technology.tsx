@@ -29,13 +29,23 @@ const TechnologyContainer = styled.div`
 
     > img {
         height: 42px;
+        @media (max-width: 768px) { 
+            flex-direction: column;
+            flex-flow: none;
+            margin: 5%;
+        }
     }
+
+
     `
 
 const Divider = styled.div`
     width: 1px;
     background-color: #7a6e6e;
     margin: 0 20px;
+    @media (max-width: 768px) { 
+        display: none;
+    }
     `
 
 export const Technology = () => {

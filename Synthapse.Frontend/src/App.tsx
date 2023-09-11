@@ -7,6 +7,7 @@ import cognispace from './images/cognispace.jpg';
 import './App.css';
 import styled from 'styled-components';
 import { Technology } from './Technology';
+import Services from './Services';
 
 
 const voiceSenseUrl = "https://storage.googleapis.com/voicesense/index.html"
@@ -26,12 +27,13 @@ function App() {
       <Hero />
       <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} />
       <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse />
+      <Services/>
       <Technology/>
     </div>
   );
 }
 
-const primaryColor = "#FD6E43"
+export const primaryColor = "#FD6E43"
 
 
 const Logo = styled.img`
