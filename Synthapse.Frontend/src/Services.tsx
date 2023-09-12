@@ -35,11 +35,11 @@ const ServiceHeaderContent = styled.div`
     }
     `
 
+// need to fix this
 const ServicesTabs = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 20%;
     margin-left: 5%;
     text-align:left;
     @media (max-width: 768px) { 

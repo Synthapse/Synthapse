@@ -8,6 +8,7 @@ import './App.css';
 import styled from 'styled-components';
 import { Technology } from './Technology';
 import Services from './Services';
+import Team from './Team';
 
 
 const voiceSenseUrl = "https://storage.googleapis.com/voicesense/index.html"
@@ -27,9 +28,10 @@ function App() {
   return (
     <div className="App">
       <Hero />
-      <Services />
       <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} videoUrl={videoUrl} />
       <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse videoUrl={videoUrl2} />
+      <Services />
+      <Team />
       <Technology />
     </div>
   );
@@ -207,13 +209,28 @@ interface IVideo {
   url: string
 }
 
+
 const Video = ({ url }: IVideo) => {
+
+  const [width, setWidth] = useState<number>(window.innerWidth);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    }
+  }, []);
+
+  const isMobile = width <= 768;
 
   const urlEmbedded = url.replace('watch?v=', 'embed/');
 
   return (
     <iframe
-      width="560"
+      width={isMobile ? "100%" : "560"}
       height="315"
       src={urlEmbedded}
       title="Youtube Player"
