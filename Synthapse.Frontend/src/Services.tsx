@@ -1,9 +1,9 @@
 import { useState } from "react";
-import BigData from "./images/BigData.jpg";
-import AIML from "./images/AIML.jpg";
-import Cloud from "./images/Cloud.jpg";
-import DevOps from "./images/Devops.jpg";
-import Development from "./images/Development.jpg";
+import BigData from "./images/BigData.webp";
+import AIML from "./images/AIML.webp";
+import Cloud from "./images/Cloud.webp";
+import DevOps from "./images/Devops.webp";
+import Development from "./images/Development.webp";
 import styled, { css, keyframes } from "styled-components";
 import { primaryColor } from "./App";
 
