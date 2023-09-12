@@ -16,24 +16,26 @@ const cogniSpaceUrl = "https://storage.googleapis.com/cognispace/index.html#/foo
 const header = "Voicesense"
 const subHeader = "Trusted source for accurate news, free from fake news and bias.";
 const description = "Our advanced AI algorithms curate a personalized news feed tailored to your interests, ensuring you stay informed about what matters most to you. We provide real-time updates from reputable sources, all within a user-friendly interface. Your privacy is our priority, as we deliver the news you need without compromising your data security.";
+const videoUrl = "https://www.youtube.com/watch?v=owqWLnyKZeg";
 
 const header2 = "Cognispace"
 const subHeader2 = "AI-driven nutrition analysis for informed, personalized dietary choices. Revolutionize your health.";
 const description2 = "Cognispace is an innovative AI project that seamlessly integrates your daily diet. Using advanced algorithms, it analyzes your nutritional intake and offers personalized recommendations for a healthier lifestyle. Experience the future of nutrition with Cognispace,  making informed dietary choices effortless and effective."
+const videoUrl2 = "https://www.youtube.com/watch?v=Aa1B4ghrPNo";
 
 function App() {
   return (
     <div className="App">
       <Hero />
-      <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} />
-      <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse />
-      <Services/>
-      <Technology/>
+      <Services />
+      <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} videoUrl={videoUrl} />
+      <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse videoUrl={videoUrl2} />
+      <Technology />
     </div>
   );
 }
 
-export const primaryColor = "#FD6E43"
+export const primaryColor = "#FD6E43";
 
 
 const Logo = styled.img`
@@ -164,11 +166,12 @@ interface IProject {
   subHeader: string,
   description: string,
   imgSource: string,
-  link: string
-  isReverse?: boolean
+  link: string,
+  isReverse?: boolean,
+  videoUrl: string,
 }
 
-const Project = ({ header, subHeader, description, imgSource, link, isReverse = false }: IProject) => {
+const Project = ({ header, subHeader, description, imgSource, link, isReverse = false, videoUrl }: IProject) => {
 
   const [width, setWidth] = useState<number>(window.innerWidth);
 
@@ -186,7 +189,7 @@ const Project = ({ header, subHeader, description, imgSource, link, isReverse = 
 
   return (
     <ProjectContainer style={isReverse && !isMobile ? { flexFlow: 'row-reverse' } : {}}>
-      <img src={imgSource} alt="logo" />
+      <Video url={videoUrl} />
       <ProjectHeader>
         <h2>{header}</h2>
         <h3>{subHeader}</h3>
@@ -194,9 +197,28 @@ const Project = ({ header, subHeader, description, imgSource, link, isReverse = 
           {description}
         </p>
         <Link target="_blank" href={link}>View Online</Link>
+
       </ProjectHeader>
     </ProjectContainer>
   )
 }
 
+interface IVideo {
+  url: string
+}
+
+const Video = ({ url }: IVideo) => {
+
+  const urlEmbedded = url.replace('watch?v=', 'embed/');
+
+  return (
+    <iframe
+      width="560"
+      height="315"
+      src={urlEmbedded}
+      title="Youtube Player"
+      allowFullScreen
+    />
+  );
+};
 export default App;
