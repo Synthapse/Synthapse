@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { Technology } from './Technology';
 import Services from './Services';
 import Team from './Team';
-
+import ProductHunt from './images/productHunt.png';
 
 const voiceSenseUrl = "https://storage.googleapis.com/voicesense/index.html"
 const cogniSpaceUrl = "https://storage.googleapis.com/cognispace/index.html#/food"
@@ -18,6 +18,7 @@ const header = "Voicesense"
 const subHeader = "Trusted source for accurate news, free from fake news and bias.";
 const description = "Our advanced AI algorithms curate a personalized news feed tailored to your interests, ensuring you stay informed about what matters most to you. We provide real-time updates from reputable sources, all within a user-friendly interface. Your privacy is our priority, as we deliver the news you need without compromising your data security.";
 const videoUrl = "https://www.youtube.com/watch?v=owqWLnyKZeg";
+const productHuntUrl = "https://www.producthunt.com/posts/voicesense"
 
 const header2 = "Cognispace"
 const subHeader2 = "AI-driven nutrition analysis for informed, personalized dietary choices. Revolutionize your health.";
@@ -28,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <Hero />
-      <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} videoUrl={videoUrl} />
+      <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} videoUrl={videoUrl} productHuntUrl={productHuntUrl} />
       <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse videoUrl={videoUrl2} />
       <Services />
       <Team />
@@ -115,6 +116,16 @@ const Link = styled.a`
   }
   `
 
+const ProductHuntImage = styled.img`
+  width: 80px;
+  `
+
+const Links = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+`
 
 export const Hero = () => {
   return (
@@ -168,12 +179,13 @@ interface IProject {
   subHeader: string,
   description: string,
   imgSource: string,
+  productHuntUrl?: string,
   link: string,
   isReverse?: boolean,
   videoUrl: string,
 }
 
-const Project = ({ header, subHeader, description, imgSource, link, isReverse = false, videoUrl }: IProject) => {
+const Project = ({ header, subHeader, description, imgSource, productHuntUrl, link, isReverse = false, videoUrl }: IProject) => {
 
   const [width, setWidth] = useState<number>(window.innerWidth);
 
@@ -198,8 +210,12 @@ const Project = ({ header, subHeader, description, imgSource, link, isReverse = 
         <p>
           {description}
         </p>
-        <Link target="_blank" href={link}>View Online</Link>
-
+        <Links>
+          <Link target="_blank" href={link}>View Online</Link>
+          {productHuntUrl && <Link target="_blank" href={productHuntUrl}>
+            <ProductHuntImage src={ProductHunt} />
+          </Link>}
+        </Links>
       </ProjectHeader>
     </ProjectContainer>
   )
