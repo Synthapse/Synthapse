@@ -64,7 +64,7 @@ const HeroImageContainer = styled.div`
     width: 100%;
     min-height:320px;
     max-height:320px;
-    background-size: contain;
+    background-size: contain; 
     background-image: url(${mainMobile});
     background-repeat: no-repeat;
   }
