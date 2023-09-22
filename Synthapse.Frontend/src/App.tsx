@@ -10,6 +10,7 @@ import { Technology } from './Technology';
 import Services from './Services';
 import Team from './Team';
 import ProductHunt from './images/productHunt.png';
+import Contact from './Contact';
 
 const voiceSenseUrl = "https://storage.googleapis.com/voicesense/index.html"
 const cogniSpaceUrl = "https://storage.googleapis.com/cognispace/index.html#/food"
@@ -33,12 +34,15 @@ function App() {
       <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse videoUrl={videoUrl2} />
       <Services />
       <Team />
+      <Contact/>
       <Technology />
     </div>
   );
 }
 
-export const primaryColor = "#FD6E43";
+export const primaryColor = "#2196f3";
+// export const primaryGradient = "linear-gradient(to right, #de6161, #2657eb)"
+export const primaryGradient = "linear-gradient(to right, #2196f3, #f44336)"
 
 
 const Logo = styled.img`
@@ -97,7 +101,7 @@ const HeroHeader = styled.div`
 
 
 const PrimaryButtonStyled = styled.button`
-  background-color: ${primaryColor};
+  background: ${primaryGradient};
   color: #fff;
   font-family: Gilroy-SemiBold;
   border: none;
@@ -108,7 +112,7 @@ const PrimaryButtonStyled = styled.button`
   }
   `
 
-const Link = styled.a`
+export const Link = styled.a`
   color: ${primaryColor};
   text-decoration: underline;
   &:hover {
@@ -146,11 +150,12 @@ export const Hero = () => {
 
 interface IPrimaryButton {
   ctaText: string
+  onClick?: () => void
 }
 
-const PrimaryButton = ({ ctaText }: IPrimaryButton) => {
+export const PrimaryButton = ({ onClick, ctaText }: IPrimaryButton) => {
   return (
-    <PrimaryButtonStyled>{ctaText}</PrimaryButtonStyled>
+    <PrimaryButtonStyled onClick={() => onClick && onClick()}>{ctaText}</PrimaryButtonStyled>
   )
 }
 
