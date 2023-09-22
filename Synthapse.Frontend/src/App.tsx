@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
+import { Route, Routes, HashRouter } from 'react-router-dom';
 import main from './images/hero.jpg';
 import mainMobile from './images/heroMobile.jpg';
 import voicesense from './images/voicesense.jpg';
@@ -28,16 +29,42 @@ const videoUrl2 = "https://www.youtube.com/watch?v=Aa1B4ghrPNo";
 
 function App() {
   return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+    </HashRouter>
+  );
+}
+
+const Main = () => {
+  return (
     <div className="App">
       <Hero />
-      <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} videoUrl={videoUrl} productHuntUrl={productHuntUrl} />
-      <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse videoUrl={videoUrl2} />
       <Services />
       <Team />
-      <Contact/>
+      <Contact />
       <Technology />
     </div>
-  );
+  )
+}
+
+const Projects = () => {
+
+  const navigateToMain = () => {
+    window.location.href = "/#/"
+  }
+
+  return (
+    <div className="App">
+      <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} videoUrl={videoUrl} productHuntUrl={productHuntUrl} />
+      <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse videoUrl={videoUrl2} />
+      <br />
+      <PrimaryButton onClick={() => navigateToMain()} ctaText={"Return"} />
+      <br /><br /><br />
+    </div >
+  )
 }
 
 export const primaryColor = "#2196f3";
@@ -132,13 +159,18 @@ const Links = styled.div`
 `
 
 export const Hero = () => {
+
+  const navigateToProjects = () => {
+    window.location.href = "/#/projects"
+  }
+
   return (
     <HeroContainer>
       <HeroHeader>
         <Logo src={logo} alt="logo" />
         <h1>Shaping Tomorrow's World with
           Collective Intelligence</h1>
-        <PrimaryButton ctaText={"Explore Ai Solutions"} />
+        <PrimaryButton onClick={() => navigateToProjects()} ctaText={"Explore Ai Solutions"} />
         <br />
         <Link>Join the collective mind</Link>
       </HeroHeader>
