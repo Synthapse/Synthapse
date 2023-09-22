@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
-import { Route, Routes, HashRouter } from 'react-router-dom';
+import { Route, Routes, HashRouter, useNavigate } from 'react-router-dom';
 import main from './images/hero.jpg';
 import mainMobile from './images/heroMobile.jpg';
 import voicesense from './images/voicesense.jpg';
@@ -52,8 +52,10 @@ const Main = () => {
 
 const Projects = () => {
 
+  const navigation = useNavigate();
+
   const navigateToMain = () => {
-    window.location.href = "/#/"
+    navigation("/")
   }
 
   return (
@@ -160,8 +162,10 @@ const Links = styled.div`
 
 export const Hero = () => {
 
+  const navigation = useNavigate();
+
   const navigateToProjects = () => {
-    window.location.href = "/#/projects"
+    navigation("/projects")
   }
 
   return (
