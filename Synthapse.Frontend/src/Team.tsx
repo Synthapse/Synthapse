@@ -67,6 +67,12 @@ const TeamMember = styled.div`
 const AboutUs = styled.div`
     width: 60%;
     text-align:left;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
 `
 
 const TeamMembers = styled.div`

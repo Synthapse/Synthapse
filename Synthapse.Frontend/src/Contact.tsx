@@ -22,6 +22,12 @@ const ContactSection = styled.div`
     >p {
         text-align:center;
     }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
 `
 
 const Contact = () => {
