@@ -43,6 +43,21 @@ const MainContainer = styled.div`
   h1 {
     font-family: Gilroy-Medium;
   }
+
+  p {
+    font-size:16px;
+  }
+
+  @media (max-width: 768px) {
+
+    h3{
+      font-size:18px;
+    }
+
+    p {
+      font-size:14px;
+    }
+  }
 `
 
 const Main = () => {
@@ -92,6 +107,10 @@ const Logo = styled.img`
   position: absolute;
   top: 40px;
   left: 40px;
+
+  @media (max-width: 768px){
+    left: 20px;
+  }
 `
 
 const HeroContainer = styled.div`
@@ -216,6 +235,7 @@ const ProjectContainer = styled.div`
   @media (max-width: 768px) { 
     flex-direction: column;
     flex-flow: none;
+    padding: 40px 20px;
   }
 `
 

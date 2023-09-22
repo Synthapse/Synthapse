@@ -28,11 +28,12 @@ const TechnologyContainer = styled.div`
     padding: 5% 5%;
 
     > img {
-        height: 42px;
+        height: 24px;
         @media (max-width: 768px) { 
             flex-direction: column;
             flex-flow: none;
             margin: 5%;
+            height:24px;
         }
     }
 

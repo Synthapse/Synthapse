@@ -36,6 +36,7 @@ export const Container = styled.div`
     @media (max-width: 768px) {
         flex-direction: column;
         flex-flow: none;
+        
     }
 
     `
@@ -72,6 +73,10 @@ const AboutUs = styled.div`
         width: 100%;
         min-width: 100%;
         max-width: 100%;
+
+        h3 {
+            font-size: 18px;
+        }
     }
 `
 

@@ -61,8 +61,10 @@ const Tab = styled.h2`
     }
 
     @media (max-width: 768px) { 
-        min-width:140px;
-        margin: 5%;
+        min-width:80px;
+        font-size: 18px;
+        text-align: center;
+        margin: 2%;
     }
 
 
@@ -113,6 +115,7 @@ const ServiceContent = styled.div`
     width: 80%;
 
     > h3 {
+        font-size:22px;
         margin:0;
     }
     `
