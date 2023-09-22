@@ -45,7 +45,7 @@ const TeamMember = styled.div`
     flex-direction: column;
     margin-right: 20px;
     align-items: justify;
-    > h3{
+    > h3 {
         margin:20px 0 0 0 ;
         padding:0;
         font-size: 16px;
@@ -102,9 +102,7 @@ const Team = () => {
         <Container>
             <h1>About</h1>
             <AboutUs>
-                <h3>While our members are scattered around the world, technology erases geographical barriers. Synthapse collaborate seamlessly across different time zones, sharing insights, working on projects, and expanding the boundaries of AI applications. We are open to forging a commercial partnership with new clients and expanding our pool of experts.
-
-                </h3>
+                <h3>While our members are scattered around the world, technology erases geographical barriers. Synthapse collaborate seamlessly across different time zones, sharing insights, working on projects, and expanding the boundaries of AI applications. We are open to forging a commercial partnership with new clients and expanding our pool of experts.</h3>
                 <TeamMembers>
                     {team.map((member, index) => {
                         return (

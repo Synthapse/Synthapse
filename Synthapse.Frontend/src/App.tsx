@@ -30,6 +30,7 @@ const videoUrl2 = "https://www.youtube.com/watch?v=Aa1B4ghrPNo";
 function App() {
   return (
     <HashRouter>
+      <Logo src={logo} alt="logo" />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/projects" element={<Projects />} />
@@ -38,17 +39,27 @@ function App() {
   );
 }
 
+const MainContainer = styled.div`
+  h1 {
+    font-family: Gilroy-Medium;
+  }
+`
+
 const Main = () => {
   return (
-    <div className="App">
+    <MainContainer>
       <Hero />
       <Services />
       <Team />
       <Contact />
       <Technology />
-    </div>
+    </MainContainer>
   )
 }
+
+const ProjectsContainer = styled.div`
+  margin: 10% 0;
+  `
 
 const Projects = () => {
 
@@ -60,8 +71,10 @@ const Projects = () => {
 
   return (
     <div className="App">
-      <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} videoUrl={videoUrl} productHuntUrl={productHuntUrl} />
-      <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse videoUrl={videoUrl2} />
+      <ProjectsContainer>
+        <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} videoUrl={videoUrl} productHuntUrl={productHuntUrl} />
+        <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse videoUrl={videoUrl2} />
+      </ProjectsContainer>
       <br />
       <PrimaryButton onClick={() => navigateToMain()} ctaText={"Return"} />
       <br /><br /><br />
@@ -78,6 +91,7 @@ const Logo = styled.img`
   width: 160px;
   position: absolute;
   top: 40px;
+  left: 40px;
 `
 
 const HeroContainer = styled.div`
@@ -116,6 +130,8 @@ const HeroHeader = styled.div`
   
   > h1 {
     width:70%;
+    font-family: Gilroy-Regular;
+    color: #7a6e6e;
   }
 
   @media (max-width: 768px) { 
@@ -171,12 +187,9 @@ export const Hero = () => {
   return (
     <HeroContainer>
       <HeroHeader>
-        <Logo src={logo} alt="logo" />
         <h1>Shaping Tomorrow's World with
           Collective Intelligence</h1>
         <PrimaryButton onClick={() => navigateToProjects()} ctaText={"Explore Ai Solutions"} />
-        <br />
-        <Link>Join the collective mind</Link>
       </HeroHeader>
       <HeroImageContainer />
     </HeroContainer>
@@ -198,7 +211,7 @@ export const PrimaryButton = ({ onClick, ctaText }: IPrimaryButton) => {
 
 const ProjectContainer = styled.div`
   display: flex;
-  padding: 5% 5%;
+  padding: 40px 40px;
   justify-content: space-between;
   @media (max-width: 768px) { 
     flex-direction: column;
