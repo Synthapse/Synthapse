@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import { Route, Routes, HashRouter, useNavigate } from 'react-router-dom';
-import main from './images/hero.jpg';
-import mainMobile from './images/heroMobile.jpg';
+import main from './images/hero.webp';
+import mainMobile from './images/heroMobile.webp';
 import voicesense from './images/voicesense.jpg';
 import cognispace from './images/cognispace.jpg';
 import './App.css';
