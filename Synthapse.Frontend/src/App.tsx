@@ -64,16 +64,16 @@ const Main = () => {
   return (
     <MainContainer>
       <Hero />
-      <Services />
-      <Team />
-      <Contact />
+      {/* <Services /> */}
+      {/* <Team /> */}
+      {/* <Contact /> */}
       <Technology />
     </MainContainer>
   )
 }
 
 const ProjectsContainer = styled.div`
-  margin: 10% 0;
+  margin: 5% 0;
   `
 
 const Projects = () => {
@@ -97,13 +97,13 @@ const Projects = () => {
   )
 }
 
-export const primaryColor = "#2196f3";
+export const primaryColor = "#F87C56";
 // export const primaryGradient = "linear-gradient(to right, #de6161, #2657eb)"
 export const primaryGradient = "linear-gradient(to right, #2196f3, #f44336)"
 
 
 const Logo = styled.img`
-  width: 160px;
+  width: 120px;
   position: absolute;
   top: 40px;
   left: 40px;
@@ -122,7 +122,7 @@ const HeroContainer = styled.div`
 `
 
 const HeroImageContainer = styled.div`
-  width: 50%;
+  width: 46%;
   min-height:100vh;
   background-size: cover;
   background-image: url(${main});
@@ -138,19 +138,20 @@ const HeroImageContainer = styled.div`
   `
 
 const HeroHeader = styled.div`
-  width: 50%;
+  background: #1B1B1E;
+  width: 54%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 10%;
   text-align:left;
   font-family: Gilroy-Regular;
-  color: #959595;
   padding: 32px;
   
   > h1 {
     width:70%;
     font-family: Gilroy-Regular;
-    color: #7a6e6e;
+    color: white;
   }
 
   @media (max-width: 768px) { 
@@ -163,9 +164,9 @@ const HeroHeader = styled.div`
   }
   `
 
-
+  // background: ${primaryGradient};
 const PrimaryButtonStyled = styled.button`
-  background: ${primaryGradient};
+  background: ${primaryColor};
   color: #fff;
   font-family: Gilroy-SemiBold;
   border: none;
@@ -203,12 +204,16 @@ export const Hero = () => {
     navigation("/projects")
   }
 
+  const bookMeeting = () => {
+    window.open("https://calendly.com/synthapseai/business-analysis")
+}
+
   return (
     <HeroContainer>
       <HeroHeader>
-        <h1>Shaping Tomorrow's World with
-          Collective Intelligence</h1>
-        <PrimaryButton onClick={() => navigateToProjects()} ctaText={"Explore Ai Solutions"} />
+        <h1>Shaping Earth IT
+          with Artificial Intelligence</h1>
+        <PrimaryButton onClick={() => bookMeeting()} ctaText={"Schedule Meeting"} />
       </HeroHeader>
       <HeroImageContainer />
     </HeroContainer>
