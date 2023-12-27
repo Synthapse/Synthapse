@@ -18,7 +18,7 @@ const projects = [{
     "videoUrl": "https://www.youtube.com/watch?v=owqWLnyKZeg",
     "productHuntUrl": "https://www.producthunt.com/posts/voicesense",
     "onlineUrl": "https://storage.googleapis.com/voicesense/index.html",
-    "presentationUrl": "https://docs.google.com/presentation/d/1KohJ4sj5RYymRjOxq4dNqLP1xW1TFfbXDz5ddBNBzFw/edit?usp=sharing",
+    "presentationUrl": "https://docs.google.com/presentation/d/1Ovo2uoKsiAT5kHc1bfTOSIRGvLaINaFgmgx4sZG7J2Y/edit?usp=sharing",
     "sourceCodeUrl": "https://github.com/Synthapse/AuthenticScope"
 }, {
     "header": "NutriInsight",
