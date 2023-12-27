@@ -174,7 +174,7 @@ export const Hero = () => {
   return (
     <HeroContainer>
       <HeroHeader>
-        <h1>Shaping Earth IT
+        <h1>Shaping Earth IT<br/>
           with Artificial Intelligence</h1>
         <PrimaryButton onClick={() => bookMeeting()} ctaText={"Schedule Meeting"} />
       </HeroHeader>
