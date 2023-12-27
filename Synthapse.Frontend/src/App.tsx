@@ -10,22 +10,14 @@ import styled from 'styled-components';
 import { Technology } from './Technology';
 import Services from './Services';
 import Team from './Team';
-import ProductHunt from './images/productHunt.png';
+
 import Contact from './Contact';
+import Projects from './Projects';
 
 const voiceSenseUrl = "https://storage.googleapis.com/voicesense/index.html"
 const cogniSpaceUrl = "https://storage.googleapis.com/cognispace/index.html#/food"
 
-const header = "Voicesense"
-const subHeader = "Trusted source for accurate news, free from fake news and bias.";
-const description = "Our advanced AI algorithms curate a personalized news feed tailored to your interests, ensuring you stay informed about what matters most to you. We provide real-time updates from reputable sources, all within a user-friendly interface. Your privacy is our priority, as we deliver the news you need without compromising your data security.";
-const videoUrl = "https://www.youtube.com/watch?v=owqWLnyKZeg";
-const productHuntUrl = "https://www.producthunt.com/posts/voicesense"
 
-const header2 = "Cognispace"
-const subHeader2 = "AI-driven nutrition analysis for informed, personalized dietary choices. Revolutionize your health.";
-const description2 = "Cognispace is an innovative AI project that seamlessly integrates your daily diet. Using advanced algorithms, it analyzes your nutritional intake and offers personalized recommendations for a healthier lifestyle. Experience the future of nutrition with Cognispace,  making informed dietary choices effortless and effective."
-const videoUrl2 = "https://www.youtube.com/watch?v=Aa1B4ghrPNo";
 
 function App() {
   return (
@@ -33,7 +25,6 @@ function App() {
       <Logo src={logo} alt="logo" />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/projects" element={<Projects />} />
       </Routes>
     </HashRouter>
   );
@@ -64,6 +55,7 @@ const Main = () => {
   return (
     <MainContainer>
       <Hero />
+      <Projects/>
       {/* <Services /> */}
       {/* <Team /> */}
       {/* <Contact /> */}
@@ -75,27 +67,6 @@ const Main = () => {
 const ProjectsContainer = styled.div`
   margin: 5% 0;
   `
-
-const Projects = () => {
-
-  const navigation = useNavigate();
-
-  const navigateToMain = () => {
-    navigation("/")
-  }
-
-  return (
-    <div className="App">
-      <ProjectsContainer>
-        <Project header={header} subHeader={subHeader} description={description} imgSource={voicesense} link={voiceSenseUrl} videoUrl={videoUrl} productHuntUrl={productHuntUrl} />
-        <Project header={header2} subHeader={subHeader2} description={description2} imgSource={cognispace} link={cogniSpaceUrl} isReverse videoUrl={videoUrl2} />
-      </ProjectsContainer>
-      <br />
-      <PrimaryButton onClick={() => navigateToMain()} ctaText={"Return"} />
-      <br /><br /><br />
-    </div >
-  )
-}
 
 export const primaryColor = "#F87C56";
 // export const primaryGradient = "linear-gradient(to right, #de6161, #2657eb)"
@@ -177,17 +148,9 @@ const PrimaryButtonStyled = styled.button`
   }
   `
 
-export const Link = styled.a`
-  color: ${primaryColor};
-  text-decoration: underline;
-  &:hover {
-    cursor: pointer;
-  }
-  `
 
-const ProductHuntImage = styled.img`
-  width: 80px;
-  `
+
+
 
 const Links = styled.div`
   display: flex;
@@ -290,10 +253,6 @@ const Project = ({ header, subHeader, description, imgSource, productHuntUrl, li
           {description}
         </p>
         <Links>
-          <Link target="_blank" href={link}>View Online</Link>
-          {productHuntUrl && <Link target="_blank" href={productHuntUrl}>
-            <ProductHuntImage src={ProductHunt} />
-          </Link>}
         </Links>
       </ProjectHeader>
     </ProjectContainer>

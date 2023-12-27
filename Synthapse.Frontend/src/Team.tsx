@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import githubLogo from "./images/githublogo.png"
-import { Link } from "./App"
 
 import user1 from "./images/user1.png";
 import user2 from "./images/user2.png";
+import { Link } from "./Projects";
 
 
 
