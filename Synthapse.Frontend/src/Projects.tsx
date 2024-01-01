@@ -42,6 +42,11 @@ const ProjectContainer = styled.div`
     margin-top:80px;
     align-items: flex-start;
     justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 0 24px;
+    }
 `
 
 const ProjectDescription = styled.div`
@@ -50,6 +55,10 @@ const ProjectDescription = styled.div`
     align-items: flex-start;
     justify-content: center;
     width: 40%;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 `
 
 const ProjectsLinks = styled.div`
@@ -58,6 +67,12 @@ const ProjectsLinks = styled.div`
     min-width: 30%;
     align-items: flex-start;
     justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        a  {
+        margin: 10px 0;
+        }
+    }
 `
 
 export const Link = styled.a`
